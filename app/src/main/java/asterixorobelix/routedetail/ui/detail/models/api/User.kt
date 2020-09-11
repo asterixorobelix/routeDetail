@@ -1,3 +1,5 @@
+package asterixorobelix.routedetail.ui.detail.models.api
+
 import com.google.gson.annotations.SerializedName
 
 data class User (

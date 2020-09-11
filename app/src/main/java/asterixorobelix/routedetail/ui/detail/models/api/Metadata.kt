@@ -1,4 +1,7 @@
 package asterixorobelix.routedetail.ui.detail.models.api
 
-class Metadata {
-}
+import com.google.gson.annotations.SerializedName
+
+data class Metadata(
+    @SerializedName("text_position") val textPosition: String?
+)
