@@ -22,6 +22,9 @@ class DetailFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail, container, false)
+        detailViewModel.apply {
+
+        }
         return binding?.root
     }
 
