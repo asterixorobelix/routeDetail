@@ -12,10 +12,9 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="asterixorobelix.routedetail.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_detail"
+        android:name="asterixorobelix.routedetail.ui.detail.DetailFragment"
+        tools:layout="@layout/fragment_detail" />
 
     <fragment
         android:id="@+id/nav_slideshow"

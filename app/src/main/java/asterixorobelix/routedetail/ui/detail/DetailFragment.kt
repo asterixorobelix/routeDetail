@@ -1,4 +1,4 @@
-package asterixorobelix.routedetail.ui.gallery
+package asterixorobelix.routedetail.ui.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import asterixorobelix.routedetail.R
 
-class GalleryFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
+    private lateinit var detailViewModel: DetailViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-                ViewModelProviders.of(this).get(GalleryViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        detailViewModel =
+                ViewModelProviders.of(this).get(DetailViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_detail, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        detailViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
