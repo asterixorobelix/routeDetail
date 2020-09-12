@@ -19,7 +19,7 @@ class WaypointsFragment : Fragment() {
 
     private var viewBinding: FragmentWaypointsBinding? = null
     private var recyclerView: RecyclerView? = null
-    private val detailViewModel: DetailViewModel by inject()
+    private val waypointsViewModel: WaypointsViewModel by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +32,7 @@ class WaypointsFragment : Fragment() {
             recyclerView = waypointsRecycler
             recyclerView?.adapter = ConcatAdapter()
         }
-        detailViewModel.routeDetail.observe(viewLifecycleOwner, Observer {
+        waypointsViewModel.routeDetail.observe(viewLifecycleOwner, Observer {
             recyclerView?.adapter = ConcatAdapter(
                 DetailDescriptionAdapter(
                     Descriptionable(

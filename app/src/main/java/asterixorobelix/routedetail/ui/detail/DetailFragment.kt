@@ -27,7 +27,7 @@ class DetailFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail, container, false)
-        detailViewModel.apply {
+        detailViewModel.detailRepository.apply {
             routeDetail.observe(viewLifecycleOwner, Observer {
                 binding?.descriptionTitle?.text = it.name
             })
