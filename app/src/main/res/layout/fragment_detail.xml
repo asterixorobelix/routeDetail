@@ -7,6 +7,12 @@
         android:fillViewport="true"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_margin="@dimen/small_margin"
+            android:id="@+id/description_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/detail_tabs"
             style="@style/Widget.MaterialComponents.TabLayout.PrimarySurface"

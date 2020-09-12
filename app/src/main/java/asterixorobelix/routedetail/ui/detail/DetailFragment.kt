@@ -29,7 +29,7 @@ class DetailFragment : Fragment() {
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail, container, false)
         detailViewModel.apply {
             routeDetail.observe(viewLifecycleOwner, Observer {
-
+                binding?.descriptionTitle?.text = it.name
             })
         }
 
@@ -47,6 +47,7 @@ class DetailFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+        tabMediator?.detach()
         binding = null
         viewPagerAdapter = null
         tabMediator = null
