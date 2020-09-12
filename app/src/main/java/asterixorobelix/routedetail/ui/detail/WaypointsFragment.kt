@@ -32,14 +32,14 @@ class WaypointsFragment : Fragment() {
             recyclerView = waypointsRecycler
             recyclerView?.adapter = ConcatAdapter()
         }
-        waypointsViewModel.routeDetail.observe(viewLifecycleOwner, Observer {
+        waypointsViewModel.routeDetail.observe(viewLifecycleOwner, Observer { routeDetails ->
             recyclerView?.adapter = ConcatAdapter(
                 DetailDescriptionAdapter(
                     Descriptionable(
-                        it.distance,
-                        it.days,
-                        it.waypoint_count,
-                        it.description
+                        routeDetails.distance,
+                        routeDetails.days,
+                        routeDetails.waypoint_count,
+                        routeDetails.description
                     )
                 )
             )

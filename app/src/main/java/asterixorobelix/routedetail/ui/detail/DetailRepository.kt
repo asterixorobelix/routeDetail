@@ -11,9 +11,8 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 
 class DetailRepository(private val gson: Gson, private val context: Context) {
-    val routeDetail: MutableLiveData<RouteDetail> = MutableLiveData(getRouteDetail())
 
-    fun getRouteDetail(): RouteDetail {
+    suspend fun getRouteDetail(): RouteDetail {
         val rawRoute = context.resources.openRawResource(R.raw.route)
         val routeReader = BufferedReader(InputStreamReader(rawRoute))
 
