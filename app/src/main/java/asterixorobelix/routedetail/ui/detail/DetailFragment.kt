@@ -7,19 +7,18 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.ConcatAdapter
-import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import asterixorobelix.routedetail.R
 import asterixorobelix.routedetail.databinding.FragmentDetailBinding
-import asterixorobelix.routedetail.ui.detail.models.ui.Descriptionable
-import asterixorobelix.routedetail.ui.detail.models.ui.DetailDescriptionAdapter
+import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.ext.android.inject
 
 class DetailFragment : Fragment() {
 
     private val detailViewModel: DetailViewModel by inject()
     private var binding: FragmentDetailBinding? = null
-    private var recyclerView: RecyclerView? = null
+    var tabMediator: TabLayoutMediator? = null
+    var viewPagerAdapter: FragmentStateAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,20 +27,20 @@ class DetailFragment : Fragment() {
     ): View? {
         binding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail, container, false)
-        recyclerView = binding?.detailRecycler
         detailViewModel.apply {
             routeDetail.observe(viewLifecycleOwner, Observer {
-                recyclerView?.adapter = ConcatAdapter(
-                    DetailDescriptionAdapter(
-                        Descriptionable(
-                            it.distance,
-                            it.days,
-                            it.waypoint_count,
-                            it.description
-                        )
-                    )
-                )
+
             })
+        }
+
+        binding?.apply {
+            viewPagerAdapter = DetailTabViewPagerAdapter(this@DetailFragment)
+            detailViewPager.adapter = viewPagerAdapter
+
+            tabMediator = TabLayoutMediator(detailTabs, detailViewPager) { tab, position ->
+                tab.text = tabsText[position]
+            }
+            tabMediator?.attach()
         }
         return binding?.root
     }
@@ -49,7 +48,11 @@ class DetailFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
-        recyclerView?.adapter = null
-        recyclerView = null
+        viewPagerAdapter = null
+        tabMediator = null
+    }
+
+    companion object {
+        val tabsText = listOf("Waypoints", "Map", "Comments")
     }
 }
