@@ -8,4 +8,5 @@ val detailModule = module {
     viewModel { DetailViewModel(get()) }
     single { DetailRepository(get(), get()) }
     single { Gson() }
+    viewModel { WaypointsViewModel(get()) }
 }

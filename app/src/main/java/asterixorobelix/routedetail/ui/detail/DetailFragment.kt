@@ -17,8 +17,8 @@ class DetailFragment : Fragment() {
 
     private val detailViewModel: DetailViewModel by inject()
     private var binding: FragmentDetailBinding? = null
-    var tabMediator: TabLayoutMediator? = null
-    var viewPagerAdapter: FragmentStateAdapter? = null
+    private var tabMediator: TabLayoutMediator? = null
+    private var viewPagerAdapter: FragmentStateAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
