@@ -25,12 +25,10 @@ class WaypointsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         viewBinding =
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_waypoints, container, false)
         viewBinding?.apply {
             recyclerView = waypointsRecycler
-            recyclerView?.adapter = ConcatAdapter()
         }
         waypointsViewModel.routeDetail.observe(viewLifecycleOwner, Observer { routeDetails ->
             recyclerView?.adapter = ConcatAdapter(
