@@ -45,7 +45,10 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
 
             profileName.text = item.profileName
 
-            profileImage.loadImageFromURLSetVisibility(item.profileImageUrl)
+            profileImage.apply {
+                clipToOutline = true
+                loadImageFromURLSetVisibility(item.profileImageUrl)
+            }
         }
     }
 

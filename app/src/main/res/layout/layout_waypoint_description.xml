@@ -89,15 +89,25 @@
                 android:id="@+id/distance_text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:drawableStartCompat="@android:drawable/ic_menu_add" />
+                android:layout_marginEnd="@dimen/small_margin"
+                app:drawableStartCompat="@drawable/route" />
 
             <TextView
                 android:id="@+id/time_text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                app:drawableStartCompat="@android:drawable/btn_star" />
+                android:layout_marginEnd="@dimen/small_margin"
+                app:drawableStartCompat="@drawable/time" />
 
         </LinearLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/images_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/measurements_layout" />
 
         <LinearLayout
             android:id="@+id/bottom_line"

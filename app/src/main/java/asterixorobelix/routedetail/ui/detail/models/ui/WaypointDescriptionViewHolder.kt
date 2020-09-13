@@ -28,7 +28,7 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
             }
 
             geoWaypointDescriptionImage.loadImageFromIDSetVisibility(
-                android.R.drawable.ic_menu_info_details,
+                R.drawable.more_horizontal,
                 item.type != WaypointType.Day
             )
 
@@ -56,10 +56,18 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
                     }</strong>", 0
                 )
             }
-            
-            waypointIcon.loadImageFromIDSetVisibility(if (item.type == WaypointType.Day) android.R.drawable.ic_menu_report_image else android.R.drawable.ic_menu_camera)
 
-            timeText.text = item.duration
+            waypointIcon.loadImageFromIDSetVisibility(if (item.type == WaypointType.Day) R.drawable.day_icon else R.drawable.pin_drop)
+
+            item.duration?.toDoubleOrNull()?.let {
+                timeText.text = HtmlCompat.fromHtml(
+                    "${
+                        root.context.getString(R.string.hours)
+                    } <strong>${"%.2f".format((it /(60*60)))} ${
+                        root.context.getString(R.string.hours_postfix)
+                    }</strong>", 0
+                )
+            }
         }
     }
 
