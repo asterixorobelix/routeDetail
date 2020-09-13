@@ -22,9 +22,13 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
                 waypointSubtitle.setVisibleOrGone(item.type != WaypointType.Day)
                 measurementsLayout.setVisibleOrGone(item.type != WaypointType.Day)
                 waypointDescription.setVisibleOrGone(item.type != WaypointType.Day)
-
+                imagesViewPager.setVisibleOrGone(item.type != WaypointType.Day)
                 bottomLine.setVisibleOrGone(item.type != WaypointType.Day)
                 topLine.setVisibleOrGone(item.type != WaypointType.Day)
+            }
+
+            if (item.photos.isNotEmpty()) {
+                imagesViewPager.adapter = WaypointImageAdapter(item.photos)
             }
 
             geoWaypointDescriptionImage.loadImageFromIDSetVisibility(
@@ -63,7 +67,7 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
                 timeText.text = HtmlCompat.fromHtml(
                     "${
                         root.context.getString(R.string.hours)
-                    } <strong>${"%.2f".format((it /(60*60)))} ${
+                    } <strong>${"%.2f".format((it / (60 * 60)))} ${
                         root.context.getString(R.string.hours_postfix)
                     }</strong>", 0
                 )
