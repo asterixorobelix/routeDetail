@@ -56,6 +56,8 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
                     }</strong>", 0
                 )
             }
+            
+            waypointIcon.loadImageFromIDSetVisibility(if (item.type == WaypointType.Day) android.R.drawable.ic_menu_report_image else android.R.drawable.ic_menu_camera)
 
             timeText.text = item.duration
         }
