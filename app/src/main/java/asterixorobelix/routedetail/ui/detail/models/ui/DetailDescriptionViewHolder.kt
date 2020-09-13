@@ -2,6 +2,7 @@ package asterixorobelix.routedetail.ui.detail.models.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import asterixorobelix.routedetail.R
 import asterixorobelix.routedetail.databinding.LayoutRouteDescriptionBinding
 import asterixorobelix.routedetail.loadImageFromURLSetVisibility
 
@@ -23,7 +24,6 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
             }
 
             profileName.text = item.profileName
-            profileAll.text = "All"
 
             profileImage.loadImageFromURLSetVisibility(item.profileImageUrl)
         }
