@@ -29,6 +29,7 @@ class WaypointDescriptionViewHolder(private val binding: LayoutWaypointDescripti
 
             if (item.photos.isNotEmpty()) {
                 imagesViewPager.adapter = WaypointImageAdapter(item.photos)
+                imagesViewPager.minimumHeight = 150
             }
 
             geoWaypointDescriptionImage.loadImageFromIDSetVisibility(
