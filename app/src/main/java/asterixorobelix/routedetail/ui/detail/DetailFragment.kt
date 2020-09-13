@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import asterixorobelix.routedetail.R
+import asterixorobelix.routedetail.ToolbarImageHeader
 import asterixorobelix.routedetail.databinding.FragmentDetailBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.ext.android.inject
@@ -30,6 +31,8 @@ class DetailFragment : Fragment() {
         detailViewModel.apply {
             routeDetail.observe(viewLifecycleOwner, Observer {routeDetails ->
                 binding?.descriptionTitle?.text = routeDetails.name
+
+                (activity as? ToolbarImageHeader)?.setToolbarImage()
             })
         }
 
