@@ -1,5 +1,7 @@
 package asterixorobelix.routedetail.ui.detail.models.ui
 
+import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import asterixorobelix.routedetail.R
@@ -22,6 +24,22 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
                     maxLines = if (maxLines == MAX_LINES) MIN_LINES else MAX_LINES
                 }
             }
+
+            descriptionExpandArrow.setOnClickListener {
+                    description.maxLines = if (description.maxLines == MAX_LINES) MIN_LINES else MAX_LINES
+            }
+
+            val gradientDrawable = GradientDrawable(
+                GradientDrawable.Orientation.BOTTOM_TOP,
+                intArrayOf(
+                    Color.parseColor("#00000000"),
+                    Color.parseColor("#00000000"),
+                    Color.parseColor("#ffdddddd"))
+            );
+            gradientDrawable.cornerRadius = 0f;
+
+            //Set Gradient
+            profile.background = gradientDrawable;
 
             profileName.text = item.profileName
 
