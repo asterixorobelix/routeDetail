@@ -2,7 +2,7 @@ package asterixorobelix.routedetail.ui.detail.models.api
 
 import com.google.gson.annotations.SerializedName
 
-data class Waypoints(
+data class Waypoint(
 	@SerializedName("id") val id: Int,
 	@SerializedName("route_id") val route_id: Int,
 	@SerializedName("order_id") val order_id: Int,

@@ -12,6 +12,9 @@
 
     <string name="menu_detail">Detail</string>
     <string name="detail_all">All</string>
+    <string name="kilometers">Kilometers</string>
+    <string name="days">Days</string>
+    <string name="waypoints">Waypoints</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

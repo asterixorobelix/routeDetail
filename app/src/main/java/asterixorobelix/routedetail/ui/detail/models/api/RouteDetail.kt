@@ -43,5 +43,5 @@ data class RouteDetail(
 	@SerializedName("de") val de: De,
 	@SerializedName("nl") val nl: Nl,
 	@SerializedName("en") val en: En,
-	@SerializedName("waypoints") val waypoints: List<Waypoints>
+	@SerializedName("waypoints") val waypoints: List<Waypoint>
 )

@@ -13,6 +13,7 @@ import asterixorobelix.routedetail.R
 import asterixorobelix.routedetail.databinding.FragmentWaypointsBinding
 import asterixorobelix.routedetail.ui.detail.models.ui.Descriptionable
 import asterixorobelix.routedetail.ui.detail.models.ui.DetailDescriptionAdapter
+import asterixorobelix.routedetail.ui.detail.models.ui.WaypointDescriptionAdapter
 import org.koin.android.ext.android.inject
 
 class WaypointsFragment : Fragment() {
@@ -41,7 +42,7 @@ class WaypointsFragment : Fragment() {
                         routeDetails.user.photo.urls.thumb,
                         routeDetails.user.displayname
                     )
-                )
+                ), WaypointDescriptionAdapter(routeDetails.waypoints)
             )
         })
         return viewBinding?.root

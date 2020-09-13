@@ -13,9 +13,10 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
 
     fun bind(item: Descriptionable) {
         binding.apply {
-            distance.text = "${item.distance} Kilometers"
-            days.text = "${item.days} Days"
-            waypoints.text = "${item.wayPointCount} Waypoints"
+            distance.text = "${item.distance} ${this.root.context.getString(R.string.kilometers)}"
+            days.text = "${item.days} ${this.root.context.getString(R.string.days)}"
+            waypoints.text =
+                "${item.wayPointCount} ${this.root.context.getString(R.string.waypoints)}"
 
             description.apply {
                 text = item.description
@@ -26,7 +27,8 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
             }
 
             descriptionExpandArrow.setOnClickListener {
-                    description.maxLines = if (description.maxLines == MAX_LINES) MIN_LINES else MAX_LINES
+                description.maxLines =
+                    if (description.maxLines == MAX_LINES) MIN_LINES else MAX_LINES
             }
 
             val gradientDrawable = GradientDrawable(
@@ -34,11 +36,11 @@ class DetailDescriptionViewHolder(private val binding: LayoutRouteDescriptionBin
                 intArrayOf(
                     Color.parseColor("#00000000"),
                     Color.parseColor("#00000000"),
-                    Color.parseColor("#ffdddddd"))
-            );
+                    Color.parseColor("#ffdddddd")
+                )
+            )
             gradientDrawable.cornerRadius = 0f;
 
-            //Set Gradient
             profile.background = gradientDrawable;
 
             profileName.text = item.profileName
