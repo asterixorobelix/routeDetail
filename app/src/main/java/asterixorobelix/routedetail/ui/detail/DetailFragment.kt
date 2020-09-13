@@ -30,9 +30,11 @@ class DetailFragment : Fragment() {
             DataBindingUtil.inflate(layoutInflater, R.layout.fragment_detail, container, false)
         detailViewModel.apply {
             routeDetail.observe(viewLifecycleOwner, Observer {routeDetails ->
-                binding?.descriptionTitle?.text = routeDetails.name
 
-                (activity as? ToolbarImageHeader)?.setToolbarImage()
+                (activity as? ToolbarImageHeader)?.apply {
+                    setToolbarImage()
+                    setToolbarText(routeDetails.name)
+                }
             })
         }
 
