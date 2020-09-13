@@ -14,17 +14,24 @@ data class Waypoint(
 	@SerializedName("country_id") val country_id: String,
 	@SerializedName("country") val country: Country?,
 	@SerializedName("name") val name: String?,
-	@SerializedName("description") val description: String,
+	@SerializedName("description") val description: String?,
 	@SerializedName("geo_lat") val geo_lat: String,
 	@SerializedName("geo_long") val geo_long: String,
 	@SerializedName("geo_lat_dms") val geo_lat_dms: String,
 	@SerializedName("geo_long_dms") val geo_long_dms: String,
 	@SerializedName("place_id") val place_id: String,
 	@SerializedName("url") val url: String,
-	@SerializedName("type") val type: String,
+	@SerializedName("type") val type: WaypointType,
 	@SerializedName("meta") val meta: Any,
-	@SerializedName("distance") val distance: String,
-	@SerializedName("duration") val duration: String,
+	@SerializedName("distance") val distance: String?,
+	@SerializedName("duration") val duration: String?,
 	@SerializedName("category") val category: String,
 	@SerializedName("photos") val photos: List<Photo>
 )
+
+enum class WaypointType {
+	@SerializedName("day")
+    Day,
+	@SerializedName("geo")
+	Geo
+}

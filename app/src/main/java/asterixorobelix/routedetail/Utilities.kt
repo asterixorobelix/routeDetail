@@ -8,11 +8,28 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import coil.api.load
 
 fun ImageView.loadImageFromURLSetVisibility(
-    imageURL: String, visible: Boolean = true, @DrawableRes errorDrawable: Int = R.drawable.profile
+    imageURL: String,
+    visible: Boolean = true,
+    @DrawableRes errorDrawable: Int = R.drawable.profile
 ) {
     val progressDrawable = createProgressDrawable(context)
 
     load(imageURL) {
+        placeholder(progressDrawable)
+        error(errorDrawable)
+    }
+
+    setVisibleOrGone(visible)
+}
+
+fun ImageView.loadImageFromIDSetVisibility(
+    @DrawableRes imageId: Int,
+    visible: Boolean = true,
+    @DrawableRes errorDrawable: Int = R.drawable.profile
+) {
+    val progressDrawable = createProgressDrawable(context)
+
+    load(imageId) {
         placeholder(progressDrawable)
         error(errorDrawable)
     }
