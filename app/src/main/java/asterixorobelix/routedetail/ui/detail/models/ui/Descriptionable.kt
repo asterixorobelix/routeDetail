@@ -4,5 +4,7 @@ data class Descriptionable(
     val distance: Int,
     val days: Int,
     val wayPointCount: Int,
-    val description: String
+    val description: String,
+    val profileImageUrl: String,
+    val profileName: String
 )

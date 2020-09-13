@@ -37,7 +37,9 @@ class WaypointsFragment : Fragment() {
                         routeDetails.distance,
                         routeDetails.days,
                         routeDetails.waypoint_count,
-                        routeDetails.description
+                        routeDetails.description,
+                        routeDetails.user.photo.urls.thumb,
+                        routeDetails.user.displayname
                     )
                 )
             )
