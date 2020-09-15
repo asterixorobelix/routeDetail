@@ -4,7 +4,8 @@
 
         <ImageView
             android:id="@+id/waypoint_image"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
+            android:layout_margin="@dimen/small_margin"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_outline"
             android:gravity="center_vertical"
